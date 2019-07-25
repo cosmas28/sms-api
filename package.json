@@ -1,0 +1,19 @@
+{
+  "name": "sms-api",
+  "version": "1.0.0",
+  "description": "sms management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosmas28/sms-api.git"
+  },
+  "author": "Cosmas augubilla100@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cosmas28/sms-api/issues"
+  },
+  "homepage": "https://github.com/cosmas28/sms-api#readme"
+}

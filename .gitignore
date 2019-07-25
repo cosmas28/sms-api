@@ -1,0 +1,21 @@
+build
+node_modules/
+.history/
+test.js
+.env
+
+.vscode/
+coverage
+.nyc_output
+
+# Webstorm
+.idea/
+
+# Yarn
+yarn.lock
+
+# Redis server dump
+dump.rdb
+
+# jsdoc
+docs/
