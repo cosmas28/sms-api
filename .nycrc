@@ -1,0 +1,13 @@
+{
+  "nyc": {
+    "all": true,
+    "check-coverage": true,
+    "include": [
+      "app/**/*.js"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "/server.js"
+    ]
+  }
+}
