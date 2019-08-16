@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test:unit": "nyc --reporter=lcov --reporter=html --reporter=text mocha --recursive test/* --require @babel/register --timeout 150000 --exit",
-    "start:dev": "NODE_ENV=development nodemon --exec babel-node ./app",
-    "build": "babel ./app --out-dir dist",
+    "start:dev": "NODE_ENV=development nodemon --exec babel-node ./bin/www",
+    "build": "babel-node ./app --out-dir dist",
     "clean": "rimraf dist",
     "server:prod": "node ./dist",
     "start": "NODE_ENV=production npm run build && npm run server:prod",
