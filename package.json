@@ -9,7 +9,7 @@
     "build": "babel ./app --out-dir dist",
     "clean": "rimraf dist",
     "server:prod": "node ./dist/bin/www",
-    "start:prop": "NODE_ENV=production npm-run-all clean build server:prod",
+    "start": "NODE_ENV=production npm-run-all clean build server:prod",
     "lint": "eslint **/*.js",
     "lint:fix": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" --fix ."
   },
