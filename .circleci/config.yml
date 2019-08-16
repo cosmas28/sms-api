@@ -1,0 +1,45 @@
+version: 2.0
+jobs:
+  build:
+    working_directory: ~/sms-api
+    environment:
+      CC_TEST_REPORTER_ID: 60fef8621c3ca3db99b61ef1ae9ada864ad53e5eb6127bb47b0946e204332de8
+    docker:
+      - image: circleci/node:10.15.1
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Unit testing and upload test coverage
+          command: |
+            ./cc-test-reporter before-build
+            npm run test:unit
+            ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
+      - run:
+          name: code-coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: test-results.xml
