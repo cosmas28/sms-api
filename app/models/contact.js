@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = (sequelize, DataTypes) => {
   const Contact = sequelize.define(
     "Contact",
@@ -13,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Contact.associate = function(models) {
+  Contact.associate = models => {
     Contact.belongsToMany(models.Sms, {
       through: "SentSms",
       foreignKey: "senderId",
