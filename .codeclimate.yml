@@ -1,0 +1,4 @@
+exclude_patterns:
+  - "app/models/"
+  - "app/seeders/"
+  - "app/migrations/"
