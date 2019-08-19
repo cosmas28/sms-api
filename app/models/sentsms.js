@@ -1,5 +1,4 @@
-"use strict";
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
   const SentSms = sequelize.define(
     "SentSms",
     {
@@ -9,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  SentSms.associate = function(models) {
+  SentSms.associate = models => {
     SentSms.belongsTo(models.Contact, { foreignKey: "senderId" });
     SentSms.belongsTo(models.Contact, { foreignKey: "receiverId" });
     SentSms.belongsTo(models.Sms, { foreignKey: "smsId" });
